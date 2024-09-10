@@ -46,6 +46,7 @@
   transform: rotate(90deg);
 }
 
-.primary svg .ghost:hover svg {
+.primary svg,
+.ghost:hover {
   fill: var(--white-color);
 }

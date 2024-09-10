@@ -21,8 +21,7 @@ export const Button = ({
       {children}
       {arrow != 'none' && (
         <span
-          className={cn(styles.arrow, className, {
-            [styles.right]: arrow == 'right',
+          className={cn(styles.arrow, {
             [styles.down]: arrow == 'down',
           })}
         >
