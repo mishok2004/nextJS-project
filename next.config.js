@@ -2,7 +2,7 @@ module.exports = {
   images: {
     domains: ['courses-top.ru'],
   },
-  webpack(config, options) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: [
@@ -13,7 +13,7 @@ module.exports = {
             svgoConfig: {
               plugins: [
                 {
-                  name: 'convertColors',
+                  name: 'preset-default',
                   params: {
                     currentColor: true,
                   },

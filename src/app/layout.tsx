@@ -1,9 +1,27 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import '@fontsource-variable/noto-sans';
+import { Noto_Sans } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+import './globals.css';
+
+const robotoFont = Roboto({
+  weight: '700',
+  subsets: ['latin'],
+  variable: '--font-roboto',
+});
+
+const notoSansFont = Noto_Sans({
+  weight: '700',
+  subsets: ['latin'],
+  variable: '--font-notosans',
+});
+
+const interFont = Inter({
+  weight: '700',
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${robotoFont.variable} ${interFont.variable} ${notoSansFont.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

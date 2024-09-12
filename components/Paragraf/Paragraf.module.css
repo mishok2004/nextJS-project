@@ -1,0 +1,17 @@
+.p {
+  margin-top: 0;
+}
+
+.m {
+  font-family: var(--font-notosans);
+  font-size: 14px;
+}
+
+.l {
+  font-family: var(--font-roboto);
+  font-size: 16px;
+}
+
+.xl {
+  font-size: 18px;
+}

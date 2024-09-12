@@ -4,7 +4,7 @@ body {
   padding: 0;
   color: var(--invert-bg);
   background: var(--bg-color);
-  font-family: 'Noto Sans Variable', sans-serif;
+  font-family: var(--font-inter);
 }
 
 a {
@@ -18,8 +18,6 @@ a {
 }
 
 :root {
-  --font-family-main: 'Noto Sans Variable', sans-serif;
-
   --black-color: #3b434e;
   --white-color: #ffffff;
   --primary-color: #7653fc;
