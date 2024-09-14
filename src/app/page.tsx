@@ -1,4 +1,4 @@
-import { Button, Htag, Paragraf } from '../../components';
+import { Button, Htag, Paragraf, Tag } from '../../components';
 
 export default function Home() {
   return (
@@ -49,6 +49,15 @@ export default function Home() {
         свое резюме. Скажу вам как прошедший это – реально помогло в
         трудоустройстве!
       </Paragraf>
+      <Tag size='l' color='green'>
+        Big
+      </Tag>
+      <Tag size='m' color='grey'>
+        Litle
+      </Tag>
+      <Tag size='l' color='red'>
+        Big
+      </Tag>
     </div>
   );
 }

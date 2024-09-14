@@ -1,18 +1,29 @@
-import { ParagrafProps } from './Tag.props';
-import styles from './Paragraf.module.css';
+import { TagProps } from './Tag.props';
+import styles from './Tag.module.css';
+import cn from 'classnames';
 
-export const Paragraf = ({
+export const Tag = ({
   size = 'l',
   children,
-}: ParagrafProps): JSX.Element => {
-  switch (size) {
-    case 'm':
-      return <p className={styles.m}>{children}</p>;
-    case 'l':
-      return <p className={styles.l}>{children}</p>;
-    case 'xl':
-      return <p className={styles.xl}>{children}</p>;
-    default:
-      return <p className={styles.l}>{children}</p>;
-  }
+  href,
+  color = 'ghost',
+  className,
+  ...props
+}: TagProps): JSX.Element => {
+  return (
+    <div
+      className={cn(styles.tag, className, {
+        [styles.m]: size == 'm',
+        [styles.l]: size == 'l',
+        [styles.ghost]: color == 'ghost',
+        [styles.red]: color == 'red',
+        [styles.grey]: color == 'grey',
+        [styles.green]: color == 'green',
+        [styles.primary]: color == 'primary',
+      })}
+      {...props}
+    >
+      {href ? <a href={href}>{children}</a> : <>{children}</>}
+    </div>
+  );
 };
