@@ -1,10 +1,24 @@
+'use client'; // This is a client component 👈🏽
+
+import { useEffect, useState } from 'react';
 import { Button, Htag, Paragraf, Tag } from '../../components';
 
 export default function Home() {
+  const [coun, setCoun] = useState<number>(0);
+
+  useEffect(() => {
+    console.log('Counter ' + coun);
+    return function cleanapp() {
+      console.log('unmoutne');
+    };
+  }, []);
   return (
     <div>
+      <Tag size='l' color='red'>
+        {coun}
+      </Tag>
       <Htag tag='h1'>Textv</Htag>
-      <Button appearance='ghost' arrow='down'>
+      <Button appearance='ghost' arrow='down' onClick={() => setCoun(coun + 1)}>
         ghost
       </Button>
       <Button appearance='primary' arrow='right'>
