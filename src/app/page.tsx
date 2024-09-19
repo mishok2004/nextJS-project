@@ -1,7 +1,7 @@
 'use client'; // This is a client component 👈🏽
 
 import { useEffect, useState } from 'react';
-import { Button, Htag, Paragraf, Tag } from '../../components';
+import { Button, Htag, Paragraf, Rating, Tag } from '../../components';
 
 export default function Home() {
   const [coun, setCoun] = useState<number>(0);
@@ -72,6 +72,7 @@ export default function Home() {
       <Tag size='l' color='red'>
         Big
       </Tag>
+      <Rating rating={4} />
     </div>
   );
 }
