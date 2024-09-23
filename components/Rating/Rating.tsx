@@ -3,7 +3,7 @@
 import { RatingProps } from './Rating.props';
 import styles from './Rating.module.css';
 import cn from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, KeyboardEvent } from 'react';
 import StarIcon from './star.svg';
 
 export const Rating = ({
@@ -20,14 +20,46 @@ export const Rating = ({
     constructorRating(rating);
   }, [rating]);
 
+  const changeDisplay = (rating: number) => {
+    if (!isEditebel) {
+      return;
+    }
+    constructorRating(rating);
+  };
+
+  const onclick = (rating: number) => {
+    if (!isEditebel || !setRating) {
+      return;
+    }
+    setRating(rating);
+  };
+
+  const handlSpace = (rating: number, e: KeyboardEvent<SVGElement>) => {
+    if (e.code != 'Space' || !setRating) {
+      return;
+    }
+    setRating(rating);
+  };
+
   const constructorRating = (currentRating: number) => {
     const updateArray = ratingArray.map((el: JSX.Element, index: number) => {
       return (
-        <StarIcon
+        <span
           className={cn(styles.star, {
             [styles.filled]: index < currentRating,
+            [styles.editable]: isEditebel,
           })}
-        />
+          onMouseEnter={() => changeDisplay(index + 1)}
+          onMouseLeave={() => changeDisplay(rating)}
+          onClick={() => onclick(index + 1)}
+        >
+          <StarIcon
+            tabIndex={isEditebel ? 0 : -1}
+            onKeyDown={(e: KeyboardEvent<SVGElement>) =>
+              isEditebel && handlSpace(index + 1, e)
+            }
+          />
+        </span>
       );
     });
     setRatingArray(updateArray);

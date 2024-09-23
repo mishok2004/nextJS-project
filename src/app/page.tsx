@@ -6,6 +6,8 @@ import { Button, Htag, Paragraf, Rating, Tag } from '../../components';
 export default function Home() {
   const [coun, setCoun] = useState<number>(0);
 
+  const [rating, setRating] = useState<number>(2);
+
   useEffect(() => {
     console.log('Counter ' + coun);
     return function cleanapp() {
@@ -72,7 +74,7 @@ export default function Home() {
       <Tag size='l' color='red'>
         Big
       </Tag>
-      <Rating rating={4} />
+      <Rating rating={rating} setRating={setRating} isEditebel />
     </div>
   );
 }
