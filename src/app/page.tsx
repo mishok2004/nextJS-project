@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { Button, Htag, Paragraf, Rating, Tag } from '../../components';
-import { Layout } from '../../layout/Layout';
+import { Layout, withLayout } from '../../layout/Layout';
 
-export default function Home() {
+function Home() {
   const [coun, setCoun] = useState<number>(0);
 
   const [rating, setRating] = useState<number>(2);
@@ -16,7 +16,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <Layout>
+    <>
       <Tag size='l' color='red'>
         {coun}
       </Tag>
@@ -76,6 +76,8 @@ export default function Home() {
         Big
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditebel />
-    </Layout>
+    </>
   );
 }
+
+export default withLayout(Home);
