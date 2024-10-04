@@ -2,6 +2,10 @@ html,
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--invert-bg);
   background: var(--bg-color);
   font-family: var(--font-inter);
@@ -13,9 +17,9 @@ a {
   color: inherit;
 }
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 :root {
   --black-color: #3b434e;

@@ -1,20 +1,18 @@
 import { LayoutProps } from './Layout.props';
 import styles from './Layout.module.css';
-import { Heder } from './Heder/Heder';
+import { Header } from './Header/Header';
 import { Sidebar } from './Sidebsr/Sidebar';
 import { Footer } from './Footer/Footer';
 import { FunctionComponent } from 'react';
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
-    <>
-      <Heder />
-      <div>
-        <Sidebar />
-        <div>{children}</div>
-      </div>
-      <Footer />
-    </>
+    <div className={styles.wrapper}>
+      <Header className={styles.header} children={undefined} />
+      <Sidebar className={styles.sidebar} children={undefined} />
+      <div className={styles.body}>{children}</div>
+      <Footer className={styles.footer} children={undefined} />
+    </div>
   );
 };
 
