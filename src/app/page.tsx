@@ -51,11 +51,6 @@ function Home({ menu }: HomeProps) {
         Big
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditebel />
-      <ul>
-        {menu.map((el) => (
-          <li key={el._id.secondCategory}>{el._id.secondCategory}</li>
-        ))}
-      </ul>
     </>
   );
 }
